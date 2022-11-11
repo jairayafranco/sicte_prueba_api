@@ -14,7 +14,7 @@ export function getUserData(req, res) {
 // Guarda los datos del usuario en la tabla usuarios
 export function saveUserData(req, res) {
     const { nombres, documento, lugar_origen, empresa, cargo, salario, jefe_inmediato, telefono, correo_personal, correo_corporativo } = req.body;
-    mysql.query("INSERT INTO usuarios VALUES ('', ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    mysql.query('INSERT INTO usuarios SET nombres = ?, documento = ?, lugar_origen = ?, empresa = ?, cargo = ?, salario = ?, jefe_inmediato = ?, telefono = ?, correo_personal = ?, correo_corporativo = ?',
         [nombres, documento, lugar_origen, empresa, cargo, salario, jefe_inmediato, telefono, correo_personal, correo_corporativo],
         (err, rows) => {
             if (err) {
